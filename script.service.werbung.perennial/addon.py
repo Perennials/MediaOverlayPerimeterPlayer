@@ -55,8 +55,8 @@ def printit():
 	response = urllib2.urlopen(req,database64)
 	
         content = response.read()
-	#dialog = xbmcgui.Dialog()
-	#dialog.notification('LOG',content,xbmcgui.NOTIFICATION_WARNING, 2000)
+	dialog = xbmcgui.Dialog()
+	dialog.notification('LOG',content,xbmcgui.NOTIFICATION_WARNING, 2000)
 	#if not content:
 	#mydisplay = MyClass()
 	#mydisplay .doModal()
