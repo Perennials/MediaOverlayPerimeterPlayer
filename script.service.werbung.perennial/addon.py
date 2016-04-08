@@ -57,7 +57,7 @@ def printit():
         content = response.read()
 	#dialog = xbmcgui.Dialog()
 	#dialog.notification('LOG',content,xbmcgui.NOTIFICATION_WARNING, 2000)
-	if not content:
+	#if not content:
 	#mydisplay = MyClass()
 	#mydisplay .doModal()
 	#del mydisplay
