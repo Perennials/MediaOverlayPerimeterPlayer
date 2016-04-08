@@ -53,13 +53,14 @@ def printit():
 	enc = data.encode()  # utf-8 by default
 	database64 =  base64.encodestring(enc)
 	response = urllib2.urlopen(req,database64)
-	content = response.read()
+	
+        content = response.read()
 	#dialog = xbmcgui.Dialog()
 	#dialog.notification('LOG',content,xbmcgui.NOTIFICATION_WARNING, 2000)
 	if not content:
-	mydisplay = MyClass()
-	mydisplay .doModal()
-	del mydisplay
+	#mydisplay = MyClass()
+	#mydisplay .doModal()
+	#del mydisplay
 
 		
 	#text_file = open("Output.txt", "w")
