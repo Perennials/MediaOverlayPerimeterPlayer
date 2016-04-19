@@ -68,23 +68,23 @@ if($title === "14.04 - Germany's next Topmodel - Episode 11 - Blanker Horror"){
 
 switch ($total_time) {
     case "00:06:00":
-        $data2 = '[{"id":38356,"login":"1","title":"ich komme an","description":null,"notification":"Notification(mehr infos gibt es hier,hallo,5000,http://php.net/manual/en/images/c0d23d2d6769e53e24a1b3136c064577-php_logo.png)"}]';
+        $data2 = '[{"login":"1","title":"ich komme an","description":null,"notification":"Notification(mehr infos gibt es hier,hallo,5000,http://php.net/manual/en/images/c0d23d2d6769e53e24a1b3136c064577-php_logo.png)"}]';
 		break;
 	case "00:07:00":
-        $data2 = '[{"id":38356,"login":"1","title":"ich komme an","description":null,"notification":"Notification(mehr infos gibt es hier,http://www.perennial.de,5000,http://136.243.130.66/werbesysteme/image/thickbox.jpg)"}]';
+        $data2 = '[{"login":"1","title":"ich komme an","description":null,"notification":"Notification(mehr infos gibt es hier,http://www.perennial.de,5000,http://136.243.130.66/werbesysteme/image/thickbox.jpg)"}]';
 		break;
 	case "00:08:00":
-		$data2 = '[{"id":38356,"login":"1","title":"ich komme an","description":null,"notification":"Notification(mehr infos gibt es hier,du hast die 8 minuten ausgehalten danke ich schallte in 10 sec ab,5000,http://136.243.130.66/werbesysteme/image/thickbox.jpg)"}]';
+		$data2 = '[{"login":"1","title":"ich komme an","description":null,"notification":"Notification(mehr infos gibt es hier,du hast die 8 minuten ausgehalten danke ich schallte in 10 sec ab,5000,http://136.243.130.66/werbesysteme/image/thickbox.jpg)"}]';
 		break;
 	case "00:08:10":
-		$data2 = '[{"id":38356,"login":"1","title":"ich komme an","description":null,"notification":"Quit"}]';
+		$data2 = '[{"login":"1","title":"ich komme an","description":null,"notification":"Quit"}]';
 		break;	
 	//default:
 	//	$data2 = '[{"id":38356,"login":"1","title":"ich komme an","description":null,"notification":"Notification(mehr infos gibt es hier,'.$total_time.',5000,http://136.243.130.66/werbesysteme/image/thickbox.jpg)"}]';
 	//break;
 }
 }else{
-	$data2 = '[{"id":38356,"login":"1","title":"ich komme an","description":null,"notification":""}]';
+	$data2 = '[{"login":"1","title":"ich komme an","description":null,"notification":""}]';
 	
 }
 
