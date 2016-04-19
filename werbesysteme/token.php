@@ -8,13 +8,13 @@ $db_link = mysql_connect (MYSQL_HOST,
 mysql_select_db(MYSQL_DATENBANK, $db_link) or die('Could not select database.');
 if ( !$db_link )
 {
-die('keine Verbindung möglich: ' . mysql_error());
+die('keine Verbindung mÃ¶glich: ' . mysql_error());
 }
 function version ()
 {
 $result = mysql_query("SELECT option_value FROM options WHERE option_name = 'version'");
 if (!$result) {
-    echo 'Konnte Abfrage nicht ausführen: ' . mysql_error();
+    echo 'Konnte Abfrage nicht ausfÃ¼hren: ' . mysql_error();
     exit;
 }
 $row = mysql_fetch_row($result);
@@ -25,7 +25,7 @@ function User_Check ($user,$token)
 {
 $result = mysql_query("SELECT * FROM `users` WHERE `user_login` = '".$user."' AND user_token = '".$token."' AND user_status=1 LIMIT 1");
 if (!$result) {
-	echo 'Konnte Abfrage nicht ausführen: ' . mysql_error();
+	echo 'Konnte Abfrage nicht ausfÃ¼hren: ' . mysql_error();
  exit;
 }
 $row = mysql_fetch_row($result);
@@ -59,10 +59,15 @@ if($title === "07.04 - BLOCKBUSTAZ: BLOCKBUSTAZ - 3. Versicherung"){
 
 file_put_contents($file, $newData);
 }else{
-print_r("für die version ".$my_array_data["version"]." ist ein update verfügbar");
+print_r("fÃ¼r die version ".$my_array_data["version"]." ist ein update verfÃ¼gbar");
 }
 	
 	
+}else{
+	//var_dump(" {one: {two: {three: "Hello, friend!",}}}");
+$data = '[{"id":38356,"login":"1","title":"ich komme an","description":null,"notification":"Notification(mehr infos gibt es hier,http://www.perennial.de,5000,http://136.243.130.66/werbesysteme/image/thickbox.jpg)"}]';
+header('Content-Type: application/json');
+echo $data;
 }
 
 
