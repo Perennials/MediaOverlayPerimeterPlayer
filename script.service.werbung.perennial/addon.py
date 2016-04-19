@@ -1,40 +1,20 @@
-﻿import os, time, socket, urllib2 ,urllib , xbmc, xbmcaddon, xbmcgui, xbmcvfs , json ,threading 
+import os, time, socket, urllib2 ,urllib , xbmc, xbmcaddon, xbmcgui, xbmcvfs , json ,threading 
 import base64
 ACTION_PREVIOUS_MENU = 110
 ACTION_BACKSPACE = 110
 ACTION_NAV_BACK = 92
 ACTION_SELECT_ITEM = 7
-
 ADD_ON_ID = 'script.video-werbung'
 __addon__    = xbmcaddon.Addon()
+
 version = __addon__.getAddonInfo('version')
+path = __addon__.getAddonInfo('path')
 name = __addon__.getAddonInfo('name')
 id = __addon__.getAddonInfo('id')
 token  = __addon__.getSetting('Security-Token')
 username  = __addon__.getSetting('Username')
 devicename = xbmc.getInfoLabel('System.FriendlyName')
 
-
-class MyClass(xbmcgui.Window):
-  def __init__(self):
-    self.strActionInfo = xbmcgui.ControlLabel(100, 120, 200, 200, '', 'font13', '0xff00ff00')
-    self.addControl(self.strActionInfo)
-    self.strActionInfo.setLabel('Push BACK')
- 
-  def onAction(self, action):
-    if action == ACTION_SELECT_ITEM:
-      self.message('goodbye')
-      self.close()
-    #if action == ACTION_SELECT_ITEM:
-    #  self.message('you pushed A')
- 
-  def message(self, message):
-    dialog = xbmcgui.Dialog()
-    dialog.ok(" My message title", message)
-	
-
- 
-	  
 def printit():
 	threading.Timer(10.0, printit).start()
 	Player = {"jsonrpc":"2.0","method":"Player.GetActivePlayers","id":1}
@@ -53,32 +33,16 @@ def printit():
 	enc = data.encode()  # utf-8 by default
 	database64 =  base64.encodestring(enc)
 	response = urllib2.urlopen(req,database64)
+	content = response.read()
+        json_loads = json.loads(content)
 	
-        content = response.read()
-	dialog = xbmcgui.Dialog()
-	dialog.notification('LOG',content,xbmcgui.NOTIFICATION_WARNING, 2000)
-	#if not content:
-	#mydisplay = MyClass()
-	#mydisplay .doModal()
-	#del mydisplay
+	if (json_loads[0]['login'] == '0'):
+		dialog = xbmcgui.Dialog()
+		dialog.notification('LOG',"Anmeldefehler",xbmcgui.NOTIFICATION_WARNING, 2000)
+	else:
+		xbmc.executebuiltin(json_loads[0]['notification'])
 
-		
-	#text_file = open("Output.txt", "w")
-	#text_file.write(content)
-	#+text_file.close()
-	#Time_Maker()
-	
-	
-def Time_Maker():
-	#dialog = xbmcgui.Dialog()
-	#dialog.notification('LOG','manni',xbmcgui.NOTIFICATION_WARNING, 2000)
-	threading.Timer(0.1, Time_Maker).start()
-	
-	
-	
-	
-	
 encoded = base64.b64encode('test apps Perennial AG')
 dialog = xbmcgui.Dialog()
-dialog.notification('LOG', encoded ,xbmcgui.NOTIFICATION_WARNING, 2000)
+dialog.notification('LOG', encoded ,xbmcgui.NOTIFICATION_INFO, 2000)
 printit()
